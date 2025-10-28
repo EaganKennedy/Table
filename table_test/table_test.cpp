@@ -17,7 +17,8 @@ TEST(Access, thrown) {
 	ASSERT_THROW(t.at(2, 0), std::out_of_range);
 }
 TEST(Access, data) {
-
+	Table<int> t(2, 2);
+	ASSERT_NO_THROW(int *tptr = t.data());
 }
 
 TEST(Copy, init) {
