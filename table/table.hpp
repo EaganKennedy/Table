@@ -8,19 +8,19 @@ public:
 	Table(int r, int c) {
 		this->r = r;
 		this->c = c;
-		dataptr = new T[r * c];
+		dataptr = new T[r * c]{};
 	}
 	~Table() {
 		delete[] dataptr;
 	}
 
-	Table(const Table&) {
+	Table(const Table& old) {
 
 	}
 	Table& operator=(const Table& old) {
 
 	}
-	Table(Table&&) {
+	Table(Table&& old) {
 
 	}
 	Table& operator=(Table&& old) {
@@ -28,10 +28,16 @@ public:
 	}
 
 	T& at(int r, int c) {
-
+		if (r >= 0 && r < this->r && c>= 0 && c < this->c) {
+			return dataptr[r * this->c + c];
+		}
+		throw std::out_of_range("Index out of bounds");
 	}
 	T const& at(int r, int c) const {
-
+		if (r >= 0 && r < this->r && c >= 0 && c < this->c) {
+			return dataptr[r * this->c + c];
+		}
+		throw std::out_of_range("Index out of bounds");
 	}
 	T* data() const {
 		return dataptr;
