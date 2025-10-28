@@ -15,11 +15,33 @@ public:
 	}
 
 	Table(const Table& old) {
+		r = old.r;
+		c = old.c;
+		dataptr = new T[r * c];
 
+		for (int ir = 0; ir < r; ir++) {
+			for (int ic = 0; ic < c; ic++) {
+				at(ir, ic) = old.at(ir, ic);
+			}
+		}
 	}
 	Table& operator=(const Table& old) {
+		if (this == &old) {
+			return *this;
+		}
 
+		delete[] dataptr;
+		r = old.r;
+		c = old.c;
+		dataptr = new T[r * c];
+
+		for (int ir = 0; ir < r; ir++) {
+			for (int ic = 0; ic < c; ic++) {
+				at(ir, ic) = old.at(ir, ic);
+			}
+		}
 	}
+
 	Table(Table&& old) {
 
 	}
@@ -39,6 +61,7 @@ public:
 		}
 		throw std::out_of_range("Index out of bounds");
 	}
+
 	T* data() const {
 		return dataptr;
 	}
