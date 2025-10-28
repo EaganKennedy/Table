@@ -40,6 +40,8 @@ public:
 				at(ir, ic) = old.at(ir, ic);
 			}
 		}
+
+		return *this;
 	}
 
 	Table(Table&& old) {
