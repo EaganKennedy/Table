@@ -34,10 +34,17 @@ TEST(Copy, assign) {
 }
 
 TEST(Move, init) {
-
+	Table<int> t(2, 2);
+	Table<int> t2 = std::move(t);
+	ASSERT_TRUE(t2.data() != nullptr);
+	ASSERT_TRUE(t.data() == nullptr);
 }
 TEST(Move, assign) {
-
+	Table<int> t(2, 2);
+	Table<int> t2(1, 1);
+	t2 = std::move(t);
+	ASSERT_TRUE(t2.data() != nullptr);
+	ASSERT_TRUE(t.data() == nullptr);
 }
 
 TEST(Resize, resize) {

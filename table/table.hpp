@@ -54,7 +54,7 @@ public:
 		r = old.r;
 		c = old.c;
 
-		old.dataptr = new T[0];
+		old.dataptr = nullptr;
 		old.r = 0;
 		old.c = 0;
 	}
