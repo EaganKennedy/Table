@@ -22,10 +22,15 @@ TEST(Access, data) {
 }
 
 TEST(Copy, init) {
-
+	Table<int> t(2, 2);
+	Table<int> t2 = t;
+	ASSERT_NO_THROW(t.at(1, 0));
 }
 TEST(Copy, assign) {
-
+	Table<int> t(1,1);
+	Table<int> t2(2,2);
+	t2 = t;
+	ASSERT_NO_THROW(t2.at(0, 0));
 }
 
 TEST(Move, init) {
