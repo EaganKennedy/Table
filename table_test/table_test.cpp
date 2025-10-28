@@ -9,10 +9,12 @@ TEST(Constructor, ValueInit) {
 }
 
 TEST(Access, at) {
-
+	Table<int> t(2, 2);
+	ASSERT_NO_THROW(t.at(1, 0));
 }
 TEST(Access, thrown) {
-
+	Table<int> t(2, 2);
+	ASSERT_THROW(t.at(2, 0), std::out_of_range);
 }
 TEST(Access, data) {
 
