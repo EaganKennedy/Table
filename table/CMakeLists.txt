@@ -1,3 +1,3 @@
-﻿add_library(table STATIC "table.hpp")
+﻿add_library(table INTERFACE "table.hpp")
 
-target_include_directories(table PUBLIC "."})
+target_include_directories(table INTERFACE ".")
