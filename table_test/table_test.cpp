@@ -48,5 +48,21 @@ TEST(Move, assign) {
 }
 
 TEST(Resize, resize) {
+	Table<int> t(3, 3);
+	t.at(0, 0) = 5;
+	t.at(0, 1) = 6;
+	t.at(0, 2) = 12;
+	t.at(1, 0) = 8;
+	t.at(1, 1) = 9;
+	t.at(1, 2) = 18;
+	t.at(2, 0) = 16;
+	t.at(2, 1) = 18;
+	t.at(2, 2) = 36;
+	t.resize(2, 2);
 
+	ASSERT_THROW(t.at(0, 2), std::out_of_range);
+	ASSERT_EQ(t.at(0, 1), 6);
+
+	ASSERT_THROW(t.at(2, 0), std::out_of_range);
+	ASSERT_EQ(t.at(1, 0), 8);
 }
