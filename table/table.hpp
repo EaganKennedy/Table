@@ -49,7 +49,7 @@ public:
 	}
 
 	//Move
-	Table(Table&& old) {
+	Table(Table&& old) noexcept{
 		dataptr = old.dataptr;
 		r = old.r;
 		c = old.c;
@@ -58,7 +58,7 @@ public:
 		old.r = 0;
 		old.c = 0;
 	}
-	Table& operator=(Table&& old) {
+	Table& operator=(Table&& old) noexcept {
 		if (this == &old) {
 			return *this;
 		}

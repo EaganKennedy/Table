@@ -66,3 +66,11 @@ TEST(Resize, resize) {
 	ASSERT_THROW(t.at(2, 0), std::out_of_range);
 	ASSERT_EQ(t.at(1, 0), 8);
 }
+
+TEST(Row, Row) {
+	Table<int> t(4, 4);
+	ASSERT_NE(t[1], nullptr);
+
+	Table<int> t2 = std::move(t);
+	ASSERT_EQ(t[1], nullptr);
+}
