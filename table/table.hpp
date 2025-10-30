@@ -49,7 +49,7 @@ public:
 	}
 
 	//Move
-	Table(Table&& old) noexcept{
+	Table(Table&& old) noexcept {
 		dataptr = old.dataptr;
 		r = old.r;
 		c = old.c;
