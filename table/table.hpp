@@ -78,7 +78,7 @@ public:
 
 	// at()
 	T& at(int r, int c) {
-		if (r >= 0 && r < this->r && c>= 0 && c < this->c) {
+		if (dataptr != nullptr && r >= 0 && r < this->r && c>= 0 && c < this->c) {
 			return dataptr[r * this->c + c];
 		}
 		throw std::out_of_range("Index out of bounds");
